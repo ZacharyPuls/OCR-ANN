@@ -1,6 +1,7 @@
 package com.zachpuls.ocrann;
 
 import org.apache.commons.math3.stat.correlation.PearsonsCorrelation;
+import org.apache.commons.math3.transform.FastHadamardTransformer;
 
 import java.awt.image.BufferedImage;
 
@@ -125,5 +126,9 @@ public class ClassificationParameters {
     public static double vSymmetry(final BufferedImage character) {
         BufferedImage mirroredCharacter = copyTopToBottom(character);
         return new PearsonsCorrelation().correlation(imageToVector(character), imageToVector(mirroredCharacter));
+    }
+
+    public static double whtPos(final BufferedImage character) {
+        return 0.0;
     }
 }
